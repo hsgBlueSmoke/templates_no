@@ -52,12 +52,12 @@ arguments:
             - name: SSDLite MobileNet-COCO
               value: ssdlite-mobilenet-coco
           type: select.select
-          value: frcnn-res50-coco
+          value: ssd-mobilenet-v2-coco
           visibility: public
         - displayName: Number of classes
           hint: Number of classes. In CVAT, this parameter will be pre-populated.
           name: cvat-num-classes
-          value: "10"
+          value: "1"
           visibility: internal
         - displayName: Hyperparameters
           hint: See <a href="https://docs.onepanel.ai/docs/reference/workflows/training#tfod-hyperparameters" target="_blank">documentation</a> for more information on parameters.
@@ -154,7 +154,7 @@ templates:
               name: src
               path: /mnt/src/tf
             - git:
-                repo: https://github.com/onepanelio/templates.git
+                repo: https://github.com/hsgBlueSmoke/templates.git
                 revision: v1.0.0
               name: tsrc
               path: /mnt/src/train
@@ -208,8 +208,8 @@ templates:
               s3:
                 key: '{{workflow.parameters.cvat-annotation-path}}'
             - git:
-                repo: https://github.com/onepanelio/templates.git
-                revision: v0.18.0
+                repo: https://github.com/hsgBlueSmoke/templates.git
+                revision: v1
               name: src
               path: /mnt/src/preprocessing
       name: preprocessing
