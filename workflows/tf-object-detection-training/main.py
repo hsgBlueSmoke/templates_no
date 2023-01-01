@@ -51,7 +51,7 @@ def main(params):
         files_dir = os.path.join(model_dir , params['model'])
         if not os.path.isdir(files_dir):
             print('base model does not exist, downloading...')
-            urllib.request.urlretrieve('https://github.com/hsgBlueSmoke/onepanel/templates/releases/download/v1/{}.tar'.format(params['model']), os.path.join(model_dir , 'model.tar'))
+            urllib.request.urlretrieve('https://github.com/hsgBlueSmoke/templates/releases/download/v1/{}.tar'.format(params['model']), os.path.join(model_dir , 'model.tar'))
             model_files = tarfile.open(os.path.join(model_dir , 'model.tar'))
             model_files.extractall(model_dir)
             model_files.close()
