@@ -1,0 +1,22 @@
+containers:
+- name: nodered
+  image: nodered/node-red
+  ports:
+  - containerPort: 1880
+    name: nodered
+  volumeMounts:
+  - name: data
+    mountPath: /data
+ports:
+- name: nodered
+  port: 80
+  protocol: TCP
+  targetPort: 1880
+routes:
+- match:
+  - uri:
+      prefix: /
+  route:
+  - destination:
+      port:
+        number: 80
